@@ -1,0 +1,19 @@
+html, body { /* adjusts the entire page */
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  header, nav, ul, li, div, article, section,
+  h1, h2, h3, h4, h5, h6, footer, table, tr, td, th,
+  hgroup, p, a, form, legend, label, textarea, button, img { /* every tag */
+    position: relative;
+    margin:0;
+    padding: 0;
+  
+    font-family: sans-serif;
+    list-style-type: none;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+ 
