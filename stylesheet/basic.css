@@ -1,6 +1,7 @@
 html, body { /* adjusts the entire page */
     margin: 0 auto;
     padding: 0;
+    background-color: #23012c;
   }
   
   header, nav, ul, li, div, article, section,
@@ -14,6 +15,7 @@ html, body { /* adjusts the entire page */
     list-style-type: none;
     list-style: none;
     text-decoration: none;
+    color: #fff;
   }
   
  
