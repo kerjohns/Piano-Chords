@@ -24,7 +24,7 @@ html {
 
 .main p, label {
   margin-top: 10%;
-  font-size: 120%;
+  font-size: 90%;
   color: #dfc5fe;
 }
 
@@ -35,7 +35,23 @@ html {
   border-radius: 5px;
   border-color: #d9d2e9;
   box-sizing: border-box;
+  font-size: large;
+  padding: 10px;
+}
+
+.main button{
+  background-color: #4f3d87;
+  color: white;
   padding: 15px;
+  border: none;
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+
+}
+
+.main button:hover {
+  
 }
 
 
