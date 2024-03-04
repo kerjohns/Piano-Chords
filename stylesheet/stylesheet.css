@@ -17,17 +17,25 @@ html {
   color: #dfc5fe;
 }
 
-.form p {
+.main{
+  width: 90%;
+  margin: auto;
+}
+
+.main p, label {
   margin-top: 10%;
-  margin-left: 10%;
   font-size: 120%;
   color: #dfc5fe;
 }
 
-.form .email div { /* this does not work */
-  width: 90%;
-  height: 10%;
-  background-color: #d9d2e9;
-  border-style: solid;
+.main input{
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 5px;
   border-color: #d9d2e9;
+  box-sizing: border-box;
+  padding: 15px;
 }
+
+

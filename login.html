@@ -10,15 +10,27 @@
     </head>
     <body>
         <div id="logbody" class="logbody"><!--holds the whole body-->
+
             <h1> Log in </h1>
             <h2> or create an account </h2>
 
-            <div id="form" class="form"><!--holds the form to fill out-->
-                <p> email </p>
-                <div id="email" class="email">
-                    
-                </div>
+            <div class="main"><!--holds the form to fill out-->
+                <br><br>
+                <label for="email">email </label>
+                <br>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <br>
+
+                <label for="password">password </label> <br>
+                <input type="password" placeholder="******" name="password" required>
+
+                <br>
+                <button type="Log in">Log in</button>
+
+                <p class="noacc">Don't have an account?   <a href="createUser.html">Sign up</a></a></p>
+
             </div>
+
         </div>
     </body>
 </html>
