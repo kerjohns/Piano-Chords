@@ -51,7 +51,16 @@ html {
 }
 
 .main button:hover {
-  
+  opacity: .8;
+  cursor: pointer;
+}
+
+.main a:link {
+  text-decoration: underline;
+}
+
+.noacc p {
+  margin: 0;
 }
 
 
