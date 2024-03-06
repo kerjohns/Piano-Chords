@@ -17,17 +17,50 @@ html {
   color: #dfc5fe;
 }
 
-.form p {
+.main{
+  width: 90%;
+  margin: auto;
+}
+
+.main p, label {
   margin-top: 10%;
-  margin-left: 10%;
-  font-size: 120%;
+  font-size: 90%;
   color: #dfc5fe;
 }
 
-.form .email div { /* this does not work */
-  width: 90%;
-  height: 10%;
-  background-color: #d9d2e9;
-  border-style: solid;
+.main input{
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 5px;
   border-color: #d9d2e9;
+  box-sizing: border-box;
+  font-size: large;
+  padding: 10px;
 }
+
+.main button{
+  background-color: #4f3d87;
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+
+}
+
+.main button:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.main a:link {
+  text-decoration: underline;
+}
+
+.noacc p {
+  margin: 0;
+}
+
+
