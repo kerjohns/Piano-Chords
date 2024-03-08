@@ -52,14 +52,13 @@ html {
   text-decoration: underline;
 }
 
-<<<<<<< HEAD
+
 /* figure out how to move the noacc p up a little bit? */
 
 .goback a {
   margin: 5%;
 } /* finish*/
-=======
+
 .noacc p {
   margin: 0;
 }
->>>>>>> cebf77394f43f1067590ea507d2527084d896a79
