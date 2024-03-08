@@ -1,0 +1,50 @@
+html { 
+    width: 90%;
+    margin: 0 auto;
+  }
+
+h1{
+    margin-top: 10%;
+    text-align: center;
+    font-size: 250%; 
+    font-family: 'Times New Roman', Times, serif, fantasy;
+}
+/*------- Div Difficulties ------*/
+
+.difficulties {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11%;
+    margin-bottom: 25%;
+    text-align: center;
+    border: 2px solid #8248c9;
+    border-radius: 10px;
+  }
+
+.difficulties h2{
+    margin: auto;
+    margin-top: 2%;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}  
+
+.difficulties button {
+    margin: 3%;
+    background-color: #4f3d87;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 30%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 15px;
+    border: 2px solid #8248c9;
+    transition-duration: 0.4s;
+  }
+  
+.difficulties button:hover {
+    background-color: #d9d2e9;
+    color: #4f3d87;
+  }
+  /*-------- End Difficulties ------*/
