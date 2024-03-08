@@ -10,13 +10,6 @@ html {
   font-size: 250%;  
 }
 
-.logbody h2 {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #dfc5fe;
-}
-
 .main{
   width: 90%;
   margin: auto;
@@ -47,7 +40,7 @@ html {
   width: 100%;
   font-size: large;
   font-weight: bold;
-
+  margin-top: 5%;
 }
 
 .main button:hover {
@@ -59,8 +52,8 @@ html {
   text-decoration: underline;
 }
 
-.noacc p {
-  margin: 0;
-}
+/* figure out how to move the noacc p up a little bit? */
 
-
+.goback a {
+  margin: 5%;
+} /* finish*/

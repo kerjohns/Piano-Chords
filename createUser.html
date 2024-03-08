@@ -9,14 +9,33 @@
         <link href="stylesheet/stylesheet.css" type="text/css" rel="stylesheet">
     </head>
     <body>
+        <div id="logbody" class="logbody"><!--holds the whole body-->
+            <div class="goback">
+                <a href="login.html"> &#x2190 Login</a>
 
+            </div>
 
-        <header> 
-            
-            <h1> CREATE USER PAGE </h1>
-        
-        </header>
-    
+            <h1> Create an Account </h1>
 
+            <div class="main"><!--holds the form to fill out-->
+                <br><br>
+                <label for="email">email </label>
+                <br>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <br>
+
+                <label for="password">password </label> <br>
+                <input type="password" placeholder="******" name="password" required>
+                <br>
+
+                <label for="repassword">reenter password </label> <br>
+                <input type="repassword" placeholder="******" name="password" required>
+                <br>
+                <button type="Log in">Sign Up</button>
+                
+
+            </div>
+
+        </div>
     </body>
 </html>
