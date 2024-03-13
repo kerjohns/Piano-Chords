@@ -1,0 +1,7 @@
+drop table if exists Account;
+create table Account (
+	username varchar(40) not null,
+    password varchar(40) not null,
+    id int,
+    primary key (id)
+);
