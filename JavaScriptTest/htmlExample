@@ -5,10 +5,16 @@
     <title>Demo</title>
 </head>
 <body>
+    //ignore this shit
     <a href="http://jquery.com/">jQuery</a>
-    <script src="jquery.js"></script>
     
+
+    <p id="demo1"></p>
+
+    //here is where it calls the myScript.js file
     <script src="myScript.js"></script>
-    
+
+
+
 </body>
 </html>
