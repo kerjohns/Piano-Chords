@@ -9,8 +9,8 @@
 <body>
     
     <script>
-        function displayChord() {
-            const [n1, note2, note3] = major(1);
+        function displayChord(root) {
+            let [n1, note2, note3] = major(root);
             document.getElementById("note1").innerHTML = n1;
             document.getElementById("note2").innerHTML = note2;
             document.getElementById("note3").innerHTML = note3;
@@ -19,7 +19,9 @@
     </script>
 
     <p>Click the button to reveal the answer</p>
-    <button onclick="displayChord()">What is a C major Chord?</button>
+    <button onclick="displayChord(1)">What is a C major Chord?</button>
+    <button onclick="displayChord("D")>What is a D major Chord?</button>
+
 
     <p id="note1"></p>
     <p id="note2"></p>
