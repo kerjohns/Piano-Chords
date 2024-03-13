@@ -9,14 +9,24 @@
         <link href="stylesheet/stylesheet.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-
-
-        <header> 
+        <div id="flashcard">
+            <h1> Easy Flashcards </h1>
             
-            <h1> EASY FLASHCARDS </h1>
-        
-        </header>
-    
 
+            <div class="card"> 
+                
+                <p>Front of Card</p>
+            
+            </div>
+            
+        
+            <div class = "activeCardButtons">
+                <button id = "flip" type="button" value="Flip" onclick="flip()">
+                    Flip
+                </button>
+            </div>
+        </div>
+
+        <script src="javascript/flashcard.js" defer></script>
     </body>
 </html>

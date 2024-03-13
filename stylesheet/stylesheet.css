@@ -62,3 +62,55 @@ html {
 .noacc p {
   margin: 0;
 }
+
+
+.cardContainer {
+  height: 30%;
+  width: 90%;
+  text-align: center;
+  background-color: #9687c4;
+}
+
+
+#front, #back {
+  min-width: 100%;
+  text-align: center;
+}
+
+#flashcard h1 {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 250%;  
+}
+
+.card {
+  margin-top: 40px;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  background-color: #9687c4;
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+
+.activeCardButtons {
+  height: 200%;
+  position: relative;
+}
+
+.activeCardButtons button{
+  background-color: #4f3d87;
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 80%;
+  font-size: large;
+  font-weight: bold;
+  margin: 10%;
+}
+
+.activeCardButtons button:hover {
+  opacity: .8;
+  cursor: pointer;
+}
