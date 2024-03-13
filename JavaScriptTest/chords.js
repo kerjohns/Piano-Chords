@@ -1,5 +1,6 @@
 //this array represents the starting note of the chord
 //so 1 = C, 2 = C#, 3 = D, etc. 
+//                C  C# D  D# E  F  F# G  G# A   A#  B
 const starting = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 
