@@ -92,6 +92,8 @@ function numToNote(input) {
 
         // Use the noteToNumber object to get the corresponding number for the given note
         result = noteToNum[input.toUpperCase()] || null;
+        //I think this will run the newly converted number back through so we get a letter
+        result = numToNote(result);
     } else {
         // If the input is neither a number nor a string, return null
         result = null;
