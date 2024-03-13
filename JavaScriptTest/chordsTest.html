@@ -7,13 +7,7 @@
     <script src="chords.js"></script>
 </head>
 <body>
-    <p>Click the button to reveal the answer</p>
-    <button onclick="displayChord()">What is a C major Chord?</button>
-
-    <p id="note1"></p>
-    <p id="note2"></p>
-    <p id="note3"></p>
-
+    
     <script>
         function displayChord() {
             const [n1, note2, note3] = major(1);
@@ -24,6 +18,11 @@
             
     </script>
 
+    <p>Click the button to reveal the answer</p>
+    <button onclick="displayChord()">What is a C major Chord?</button>
 
+    <p id="note1"></p>
+    <p id="note2"></p>
+    <p id="note3"></p>
 </body>
 </html>
