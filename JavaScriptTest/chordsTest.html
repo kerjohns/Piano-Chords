@@ -8,17 +8,20 @@
 </head>
 <body>
     <p>Click the button to reveal the answer</p>
-    <button onclick="displayDate()">The time is?</button>
+    <button onclick="displayChord()">What is a C major Chord?</button>
 
     <p id="note1"></p>
     <p id="note2"></p>
     <p id="note3"></p>
 
     <script>
-        const [note1, note2, note3] = major(1);
-        document.gtElementById("note1").innerHTML = note1;
-        document.gtElementById("note2").innerHTML = note2;
-        document.gtElementById("note3").innerHTML = note3;
+        function displayChord() {
+            const [note1, note2, note3] = major(1);
+            document.gtElementById("note1").innerHTML = note1;
+            document.gtElementById("note2").innerHTML = note2;
+            document.gtElementById("note3").innerHTML = note3;
+        }
+            
     </script>
 
 
