@@ -71,10 +71,9 @@ html {
   background-color: #9687c4;
 }
 
-
-#front, #back {
-  min-width: 100%;
-  text-align: center;
+.flashcard {
+  position: relative;
+  display: flex;
 }
 
 #flashcard h1 {
@@ -83,31 +82,53 @@ html {
   font-size: 250%;  
 }
 
-.card {
-  margin-top: 40px;
-  height: 50%;
-  width: 100%;
-  text-align: center;
+.maincard {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  margin-bottom: 20px;
   position: relative;
-  background-color: #9687c4;
-  padding-top: 20%;
-  padding-bottom: 20%;
 }
+
+.frontcard, .backcard {
+  position: absolute;
+  margin: auto;
+  margin-top: 40px;
+  margin-left: 10%;
+  width: 80%;
+  text-align: center;
+  
+  background-color: #9687c4;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  backface-visibility: hidden; 
+}
+
+.backcard {
+  transform: rotateY(180deg);
+}
+
 
 .activeCardButtons {
-  height: 200%;
-  position: relative;
+  position: fixed;
+  
+  width: 80%;
+  margin-left: 5%;
+  bottom: 0;
+  display: flex;
+  margin-bottom: 40px;
 }
 
-.activeCardButtons button{
+.activeCardButtons button {
+  margin: auto;
+  position: relative;
+  width: 30%;
   background-color: #4f3d87;
   color: white;
   padding: 15px;
   border: none;
-  width: 80%;
   font-size: large;
   font-weight: bold;
-  margin: 10%;
+  
 }
 
 .activeCardButtons button:hover {
