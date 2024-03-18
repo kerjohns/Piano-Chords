@@ -5,30 +5,19 @@
     <title>Chords Test</title>
     <! here is where it calls the chords js file >
     <script src="chords.js"></script>
+    <script src="display.js"></script>
 </head>
 <body>
-    
-    <script>
-        function displayChord(root) {
-            let [note1, note2, note3] = major(root);
-            document.getElementById("note1").innerHTML = note1;
-            document.getElementById("note2").innerHTML = note2;
-            document.getElementById("note3").innerHTML = note3;
-        }
-            
-    </script>
+    <h1>These chords are goated</h1>
 
-    <p>Click the button to reveal the answer</p>
-    <button onclick="displayChord(1)">What is a C major Chord?</button>
-    <button onclick="displayChord(3)">What is a D major Chord?</button>
-    <button onclick="displayChord(4)">What is a D# major Chord?</button>
-    <button onclick="displayChord(6)">What is a F major Chord?</button>
-    <button onclick="displayChord(12)">What is a B major Chord?</button>
+    <p id = "noteName" style="font-weight: bold;">note name</p>
+    <p class="notes">note1</p>
+    <p class="notes">note2</p>
+    <p class="notes">note3</p>
 
 
+    <button id="flip">Flip</button>
 
-    <p id="note1"></p>
-    <p id="note2"></p>
-    <p id="note3"></p>
+
 </body>
 </html>
