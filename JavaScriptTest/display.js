@@ -1,7 +1,13 @@
 // Attach event listener to the button for displaying chord notes
 document.addEventListener("DOMContentLoaded", function() {
     var flip = document.getElementById('flip');
-    flip.addEventListener('click', function(event) {
+    var next = document.getElementById('next');
+    var chordNotes; // Declare chordNotes outside the event listeners
+
+    next.addEventListener('click', function(event) {
+        noteName.style.display = 'block';
+        chordName.style.display = 'none';
+
         // Generate a random number between 1 and 12 for the root note
         const randomRoot = Math.floor(Math.random() * 12) + 1;
 
@@ -9,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const randomChordType = Math.floor(Math.random() * 2); // 0 for major, 1 for minor
 
         // Display chord notes based on random root and chord type
-        let chordNotes;
         if (randomChordType === 0) {
             chordNotes = major(randomRoot);
             document.getElementById("noteName").innerHTML = numToNote(randomRoot) + " major";
@@ -18,9 +23,22 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("noteName").innerHTML = numToNote(randomRoot) + " minor";
         }
 
+        console.log(chordNotes);
+    })
+
+    flip.addEventListener('click', function(event) {
+        console.log(chordNotes);
+        noteName.style.display = 'none';
+        chordName.style.display = 'block';
+
         // Display chord notes in the corresponding <p> elements
-        document.getElementsByClassName("notes")[0].innerHTML = chordNotes[0];
+        if (chordNotes) {
+            // Display chord notes in the corresponding <p> elements
+            document.getElementById("chordName").innerHTML = chordNotes[0] + "    " + chordNotes[1] + "    " + chordNotes[2];
+        }
+        /*
         document.getElementsByClassName("notes")[1].innerHTML = chordNotes[1];
         document.getElementsByClassName("notes")[2].innerHTML = chordNotes[2];
+        */
     });
 });

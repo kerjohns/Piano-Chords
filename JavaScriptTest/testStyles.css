@@ -1,0 +1,27 @@
+.flashcard {
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.notes {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.chord {
+    display: block; /* Initially hide the chord */
+}
+
+#flip,
+#next {
+    display: block;
+    margin: 10px auto; /* Centers the buttons horizontally */
+}
