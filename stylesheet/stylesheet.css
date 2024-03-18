@@ -84,30 +84,36 @@ html {
 }
 
 .card {
+  margin: auto;
   margin-top: 40px;
-  height: 50%;
-  width: 100%;
+  width: 80%;
   text-align: center;
   position: relative;
   background-color: #9687c4;
-  padding-top: 20%;
-  padding-bottom: 20%;
+  padding-top: 15%;
+  padding-bottom: 15%;
+
+  
 }
 
 .activeCardButtons {
+  margin: auto;
+  margin-left: 10%;
   height: 200%;
   position: relative;
 }
 
 .activeCardButtons button{
+  margin: auto;
+  margin-top: 20px;
   background-color: #4f3d87;
   color: white;
   padding: 15px;
   border: none;
-  width: 80%;
+  width: 30%;
   font-size: large;
   font-weight: bold;
-  margin: 10%;
+  
 }
 
 .activeCardButtons button:hover {
