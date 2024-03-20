@@ -72,7 +72,10 @@ html {
   background-color: #9687c4;
 }
 
-
+.flashcard {
+  position: relative;
+  display: flex;
+}
 
 #flashcard h1 {
   margin-top: 40px;
@@ -80,29 +83,46 @@ html {
   font-size: 250%;  
 }
 
-.card {
+.maincard {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.frontcard, .backcard {
+  position: absolute;
   margin: auto;
   margin-top: 40px;
+  margin-left: 10%;
   width: 80%;
   text-align: center;
-  position: relative;
+  
   background-color: #9687c4;
   padding-top: 15%;
   padding-bottom: 15%;
-
-  
+  backface-visibility: hidden; 
 }
 
+.backcard {
+  transform: rotateY(180deg);
+}
+
+
 .activeCardButtons {
+  position: fixed;
+  
+  width: 80%;
+  margin-left: 5%;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .activeCardButtons button {
   margin: auto;
   position: relative;
   width: 30%;
-  margin-top: 40px;
   background-color: #4f3d87;
   color: white;
   padding: 15px;
