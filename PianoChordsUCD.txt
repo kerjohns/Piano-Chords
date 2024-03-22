@@ -15,6 +15,9 @@ usecase LogIn as li
 usecase LogOut as lo
 usecase SelectFlashcards as self
 usecase StudyFlashcards as stuf
+usecase Easy as e
+usecase Medium as m
+usecase Hard as h
 }
 
 u -- ca
@@ -32,4 +35,7 @@ cp <.. ca :<<includes>>
 se <.. ca :<<includes>>
 li <.. ep :<<includes>>
 stuf <.. self :<<extends>>
+self <.. e :<<includes>>
+self <.. m :<<includes>>
+self <.. h :<<includes>>
 @enduml
