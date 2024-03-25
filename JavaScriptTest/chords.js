@@ -12,6 +12,13 @@ function minor(root) {
 	return [numToNote(root), numToNote(third), numToNote(fifth)];
 }
 
+function dim(root) {
+	let third, fifth;
+	third = (root + 3) % 12;
+	fifth = (root + 6) % 12;
+	return [numToNote(root), numToNote(third), numToNote(fifth)];
+}
+
 
 //function that will convert a number to its respective note
 function numToNote(input) {
