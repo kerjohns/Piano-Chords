@@ -7,7 +7,7 @@ function major(root) {
 
 function minor(root) {
 	let third, fifth;
-	third = (root + 4) % 12;
+	third = (root + 3) % 12;
 	fifth = (root + 7) % 12;
 	return [numToNote(root), numToNote(third), numToNote(fifth)];
 }

@@ -1,52 +1,34 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scaleable=no">
-        <meta http-equiv="X-UA-Compatible" content = "IE=edge,chrom=1">
-        <meta name = "HandheldFriendly" content = "true">
-        <title> Easy </title>
-        <link href="stylesheet/basic.css" type="text/css" rel="stylesheet">
-        <link href="stylesheet/stylesheet.css" type="text/css" rel="stylesheet">
-        <script src="script/flashcard.js"></script>
-    </head>
-    <body>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Easy Flashcards</title>
+    <!--re is where it calls the chords js file -->
+    <script src="../Piano-Chords/script/chords.js"></script>
+    <script src="../Piano-Chords/script/display.js"></script>
+    <link rel="stylesheet" href="../Piano-Chords/stylesheet/testStyles.css">
+</head>
+<body>
+    <h1>Easy Flashcards</h1>
+<!--
+    <p id = "noteName" style="font-weight: bold;">note name</p>
+    <p class="notes">note1</p>
+    <p class="notes">note2</p>
+    <p class="notes">note3</p>
+-->
+    
+    <div class="flashcard">
+        <p class="notes" id="noteName">select next to start</p>
+        <p id="chordName"></p>
+    <!-- code probably obsolete
+        <p class="notes">note2</p>
+        <p class="notes">note3</p>
+    -->
+    </div>
 
-        <script>
+    <button id="flip">Flip</button>
+    <button id="next">Next</button>
 
 
-        </script>
-
-        <div id="flashcard">
-            <h1> Easy Flashcards </h1>
-            
-            <div id="maincard">
-                <div class="frontcard"> 
-                
-                    <p>Front of Card</p>
-                
-                </div>
-                <div class="backcard"> 
-                    
-                    <p>Back of Card</p>
-                
-                </div>
-            </div>
-            
-            
-        
-            <div class = "activeCardButtons">
-                <button id = "back" type="button" value="Back" onclick="">
-                    Back
-                </button>
-                <button id = "flip" type="button" value="Flip" onclick="">
-                    Flip
-                </button>
-                <button id = "next" type="button" value="Next" onclick="">
-                    Next
-                </button>
-            </div>
-        </div>
-
-        <script src="javascript/flashcard.js" defer></script>
-    </body>
+</body>
 </html>
