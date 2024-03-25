@@ -26,6 +26,21 @@ function aug(root) {
 	return [numToNote(root), numToNote(third), numToNote(fifth)];
 }
 
+function domSeven(root) {
+	//this function just returns the dominant seventh for any root
+	let seventh;
+	seventh = (root + 10) % 12;
+	return [numToNote(seventh)];
+}
+
+function majSeven(root) {
+	//this function just returns the major seventh for any root
+	let seventh;
+	seventh = (root + 11) % 12;
+	return [numToNote(seventh)];
+}
+
+
 //function that will convert a number to its respective note
 function numToNote(input) {
     const noteNames = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
