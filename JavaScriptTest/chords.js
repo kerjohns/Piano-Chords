@@ -19,6 +19,12 @@ function dim(root) {
 	return [numToNote(root), numToNote(third), numToNote(fifth)];
 }
 
+function aug(root) {
+	let third, fifth;
+	third = (root + 4) % 12;
+	fifth = (root + 8) % 12;
+	return [numToNote(root), numToNote(third), numToNote(fifth)];
+}
 
 //function that will convert a number to its respective note
 function numToNote(input) {
