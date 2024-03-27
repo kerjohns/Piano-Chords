@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scaleable=no">
-        <meta http-equiv="X-UA-Compatible" content = "IE=edge,chrom=1">
-        <meta name = "HandheldFriendly" content = "true">
-        <title> Medium </title>
-        <link href="stylesheet/basic.css" type="text/css" rel="stylesheet">
-        <link href="stylesheet/stylesheet.css" type="text/css" rel="stylesheet">
-    </head>
-    <body>
-        <div id="flashcard">
-            <h1> Medium Flashcards </h1>
-            
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Medium Flashcards</title>
+    <!--re is where it calls the chords js file -->
+    <script src="../Piano-Chords/script/chords.js"></script>
+    <script src="../Piano-Chords/script/display.js"></script>
+    <link rel="stylesheet" href="../Piano-Chords/stylesheet/testStyles.css">
+</head>
+<body>
+    <p class="back">Back to <a href="home.html">Home</a>
 
-            <div class="card"> 
-                
-                <p>Front of Card</p>
-            
-            </div>
-            
-        
-            <div class = "activeCardButtons">
-                <button id = "back" type="button" value="Back" onclick="">
-                    Back
-                </button>
-                <button id = "flip" type="button" value="Flip" onclick="">
-                    Flip
-                </button>
-                <button id = "next" type="button" value="Next" onclick="">
-                    Next
-                </button>
-            </div>
-        </div>
+    <h1>Medium Flashcards</h1>
 
-        <script src="javascript/flashcard.js" defer></script>
-    </body>
+    
+    <div class="flashcard">
+        <p class="notes" id="noteName">select next to start</p>
+        <p id="chordName"></p>
+   
+    </div>
+
+    <button id="flip">Flip</button>
+    <button id="next">Next</button>
+
+
+</body>
 </html>
