@@ -62,3 +62,13 @@ button {
     font-weight: bold;
     
   }
+
+  .back {
+    color: white;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+  a{
+    color: white;
+  }
