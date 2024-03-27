@@ -26,6 +26,20 @@ function aug(root) {
 	return [numToNote(root), numToNote(third), numToNote(fifth)];
 }
 
+function sus2(root) {
+	let third, fifth;
+	third = (root + 2) % 12;
+	fifth = (root + 7) % 12;
+	return [numToNote(root), numToNote(third), numToNote(fifth)];
+}
+
+function sus4(root) {
+	let third, fifth;
+	third = (root + 5) % 12;
+	third = (root + 7) % 12;
+	return [numToNote(root), numToNote(third), numToNote(fifth)];
+}
+
 function domSeven(root) {
 	//this function just returns the dominant seventh for any root
 	let seventh;
