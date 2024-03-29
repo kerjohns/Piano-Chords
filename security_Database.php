@@ -1,8 +1,8 @@
 <?php
-$mySQLservername = "cescheet"; 
-$mySQLusername = "cescheet"; 
-$mySQLpassword = " xxx "; 
-$mySQLdbname = "cescheet"; 
+$mySQLservername = "cescheet";
+$mySQLusername = "cescheet";
+$mySQLpassword = "xxx";
+$mySQLdbname = "cescheet";
 
 $conn = new mysqli($mySQLservername, $mySQLusername, $mySQLpassword, $mySQLdbname);
 
@@ -11,40 +11,32 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user = $_POST['username'];
+    $user = $conn->real_escape_string($_POST['username']);
     $pass = $_POST['password'];
 
-    $sql = "SELECT * FROM accounts WHERE username = '$user'";
-    $result = $conn->query($sql);
+    // Check if username exists
+    $stmt = $conn->prepare("SELECT * FROM accounts WHERE username = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "Username already exists. Please try a different username.";
+        echo "Username already exists. Please enter a different username.";
     } else {
-        $sql = "INSERT INTO accounts (username, userPassword) VALUES ('$user', '$pass')";
+        $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Your account created successfully";
+        $stmt = $conn->prepare("INSERT INTO accounts (username, userPassword) VALUES (?, ?)");
+        $stmt->bind_param("ss", $user, $hashed_password);
+
+        if ($stmt->execute()) {
+            echo "Your account was created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $stmt->error;
         }
     }
+
+    $stmt->close();
 }
 
 $conn->close();
 ?>
- 
- // this is going to need to be updates to incourporate this with out create account // page and its variables 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registration Form</title>
-</head>
-<body>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        Username: <input type="text" name="username" required><br>
-        Password: <input type="password" name="password" required><br>
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>
