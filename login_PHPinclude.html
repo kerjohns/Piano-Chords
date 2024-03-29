@@ -16,30 +16,6 @@
         <h1> Log in </h1>
 
         <div class="main"><!--holds the form to fill out-->
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                // Assume $conn is the connection to the database and is already established
-                $user = $conn->real_escape_string($_POST['username']);
-                $pass = $_POST['password'];
-
-                // Check credentials (this is just an example, you should use prepared statements and password hashing in practice)
-                $sql = "SELECT userPassword FROM accounts WHERE username = '$user'";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    if (password_verify($pass, $row['userPassword'])) {
-                        // Redirect to home page
-                        header("Location: home.html");
-                        exit();
-                    } else {
-                        echo "<p>Invalid username or password</p>";
-                    }
-                } else {
-                    echo "<p>Invalid username or password</p>";
-                }
-            }
-            ?>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <label for="username">Username</label>
                 <br>
