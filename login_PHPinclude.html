@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scaleable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title> Login </title>
+    <link rel="icon" type="image/x-icon" href="../Piano-Chords/Images/favicon.ico">
+    <link href="stylesheet/basic.css" type="text/css" rel="stylesheet">
+    <link href="stylesheet/stylesheet.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="logbody" class="logbody"><!--holds the whole body-->
+
+        <h1> Log in </h1>
+
+        <div class="main"><!--holds the form to fill out-->
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                <label for="username">Username</label>
+                <br>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <br>
+
+                <label for="password">Password</label>
+                <br>
+                <input type="password" placeholder="******" name="password" required>
+                <br>
+
+                <input type="submit" value="Log in">
+                <br>
+            </form>
+            <p class="noacc">Don't have an account? <a href="createUser.html">Sign up</a></p>
+        </div>
+
+    </div>
+</body>
+</html>
