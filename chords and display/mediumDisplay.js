@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var flip = document.getElementById('flip');
     var next = document.getElementById('next');
     var chordNotes; // Declare chordNotes outside the event listeners
+    canMajSeven = true;
 
     next.addEventListener('click', function(event) {
         noteName.style.display = 'block';
         chordName.style.display = 'none';
-        isSUS = false;
+        
 
         // Generate a random number between 1 and 12 for the root note
         const randomRoot = Math.floor(Math.random() * 12) + 1;
@@ -24,40 +25,35 @@ document.addEventListener("DOMContentLoaded", function() {
             case 1:
                 chordNotes = minor(randomRoot);
                 document.getElementById("noteName").innerHTML = numToNote(randomRoot) + "m";
+                canMajSeven = false;
                 break;
             case 2:
                 chordNotes = dim(randomRoot);
                 document.getElementById("noteName").innerHTML = numToNote(randomRoot) + "dim";
+                canMajSeven = false;
                 break;
             case 3:
                 chordNotes = aug(randomRoot);
                 document.getElementById("noteName").innerHTML = numToNote(randomRoot) + "aug";
-                break;
-            case 4:
-                chordNotes = sus2(randomRoot);
-                document.getElementById("noteName").innerHTML = numToNote(randomRoot) + "sus2";
-                isSUS = true;
-                break;
-            case 5:
-                chordNotes = sus4(randomRoot);
-                document.getElementById("noteName").innerHTML = numToNote(randomRoot) + "sus4";
-                isSUS = true;
-                break;
-            default:
+                canMajSeven = false;
                 break;
         }
 
         //roll a random number and decide if it should be a seventh chord or not
-        const seventhDecision = Math.floor(Math.random() * 3); // 2 for no change, 1 for domSeven, 0 for majSeven
+        const seventhDecision = Math.floor(Math.random() * 2); // 2 for no change, 1 for domSeven, 0 for majSeven
 
         switch(seventhDecision) {
             case 0:
+                if (canMajSeven == true) {
                     chordNotes.push(majSeven(randomRoot)[0]);
                     document.getElementById("noteName").innerHTML += "maj7"; 
+                }
+                
                 break;
             case 1:
                 chordNotes.push(domSeven(randomRoot)[0]);
                 document.getElementById("noteName").innerHTML += "7";
+                //chordTypeElement.innerHTML = "7";
                 break;
             case 2:
                 //do nothing
@@ -66,51 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         }
 
-        const ninthDecision = Math.floor(Math.random() * 3); // 0 for add9
-
-        switch(ninthDecision) {
-            case 0:
-                if (isSUS == false) {
-                    chordNotes.push(addNine(randomRoot)[0]);
-                    document.getElementById("noteName").innerHTML += "add9";
-                }
-                break;
-            case 1:
-                //do nothing
-                break;
-            default:
-                break;
-        }
-
-        const eleventhDecision = Math.floor(Math.random() * 2); // 0 for add11
-
-        switch(eleventhDecision) {
-            case 0:
-                if (isSUS == false) {
-                    chordNotes.push(addEleven(randomRoot)[0]);
-                    document.getElementById("noteName").innerHTML += "add11";
-                }
-                break;
-            case 1:
-                //do nothing
-                break;
-            default:
-                break;
-        }
-
-        const thirteenthDecision = Math.floor(Math.random() * 2); // 0 for add13
-
-        switch(thirteenthDecision) {
-            case 0:
-                chordNotes.push(addThirteen(randomRoot)[0]);
-                document.getElementById("noteName").innerHTML += "add13";
-                break;
-            case 1:
-                //do nothing
-                break;
-            default:
-                break;
-        }
         console.log(chordNotes);
     })
 
