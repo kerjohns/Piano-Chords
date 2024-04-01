@@ -26,15 +26,6 @@
                 <br>
                 <input type="password" placeholder="******" name="password" required>
                 <br>
-
-                <br>
-                <button onclick="document.location='home.html'" type="Log in">Log in</button>
-                <br>
-                <p class="noacc">Don't have an account?   <a href="createUser.html">Sign up</a></a></p>
-
-            </div>
-
-        </div>
     
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -50,6 +41,12 @@
         }
     }
     ?>
+                <button onclick="document.location='home.html'" type="Log in">Log in</button>
+                <br>
+                <p class="noacc">Don't have an account?   <a href="createUser.html">Sign up</a></a></p>
 
+            </div>
+
+        </div>
     </body>
 </html>
