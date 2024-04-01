@@ -57,5 +57,42 @@ body{
     background-color: #d9d2e9;
     color: #4f3d87;
   }
-  /*-------- End Difficulties ------*/
+/*-------- End Difficulties ------*/
 
+
+/* ------ Nav bar -------- */
+.navbar {
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  overflow: hidden;
+  background-color: #23012c;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+
+}
+
+/* Links inside the navbar */
+.navbar .text {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar .text:hover {
+  background: #d9d2e9;
+  color: #4f3d87;
+}
+ 
+.navlogo {
+  padding: 2.5px;
+  height: 2.5em;
+  align-content: center;
+}
+
+/* ----- End Navbar -----*/
