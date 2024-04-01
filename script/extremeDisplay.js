@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var flip = document.getElementById('flip');
     var next = document.getElementById('next');
     var chordNotes; // Declare chordNotes outside the event listeners
+    var awesomeSpaceShortcut = 0;
 
     next.addEventListener('click', function(event) {
         noteName.style.display = 'block';
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         }
 
-        const ninthDecision = Math.floor(Math.random() * 3); // 0 for add9
+        const ninthDecision = Math.floor(Math.random() * 2); // 0 for add9
 
         switch(ninthDecision) {
             case 0:
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
             default:
                 break;
         }
-
+        console.log(chordNotes);
         const eleventhDecision = Math.floor(Math.random() * 2); // 0 for add11
 
         switch(eleventhDecision) {
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             default:
                 break;
         }
-
+        console.log(chordNotes);
         const thirteenthDecision = Math.floor(Math.random() * 2); // 0 for add13
 
         switch(thirteenthDecision) {
@@ -140,5 +141,27 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementsByClassName("notes")[1].innerHTML = chordNotes[1];
         document.getElementsByClassName("notes")[2].innerHTML = chordNotes[2];
         */
+    });
+
+    // Add event listener for keydown event
+    document.addEventListener('keydown', function(event) {
+        // Check if the key pressed is 'Enter' or 'Space' key
+        if (awesomeSpaceShortcut == 0) { //if thisis the first time pressing space then flip the card and add one to awesomeSpaceCounter
+            if (event.key === 'Enter' || event.key === ' ') {
+                // Trigger click event of the 'next' button
+                flip.click();
+                awesomeSpaceShortcut = (awesomeSpaceShortcut + 1) % 2;
+            }
+        } else if (awesomeSpaceShortcut == 1) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                // Trigger click event of the 'next' button
+                next.click();
+                awesomeSpaceShortcut = (awesomeSpaceShortcut + 1) % 2;
+            }
+        }
+        if (event.key === 'Escape') {
+            // Redirect to home page when 'Esc' key is pressed
+            window.location.href = 'home.html';
+        }
     });
 });

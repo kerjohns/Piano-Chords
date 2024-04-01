@@ -54,6 +54,27 @@ function majSeven(root) {
 	return [numToNote(seventh)];
 }
 
+function addNine(root) {
+	//this function adds the 9th notes (also known as a second)
+	let ninth;
+	ninth = (root + 2) % 12;
+	return [numToNote(ninth)];
+}
+
+function addEleven(root) {
+	//this function adds the 11th notes (also known as a second)
+	let ninth;
+	ninth = (root + 5) % 12;
+	return [numToNote(ninth)];
+}
+
+function addThirteen(root) {
+	//this function adds the 13th notes (also known as a second)
+	let ninth;
+	ninth = (root + 9) % 12;
+	return [numToNote(ninth)];
+}
+
 
 //function that will convert a number to its respective note
 function numToNote(input) {

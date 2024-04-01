@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Generate a random number between 1 and 12 for the root note
         const randomRoot = Math.floor(Math.random() * 12) + 1;
-
+console.log(randomRoot);
         // Generate a random number (0 through 4) to select one of the chord types
-        const randomChordType = Math.floor(Math.random() * 5); // 0 to 4 for all chord types
-
+        const randomChordType = Math.floor(Math.random() * 4); // 0 to 3 for all chord types
+console.log(randomChordType);
+console.log(chordNotes);
         // Display chord notes based on random root and chord type
         switch(randomChordType) {
             case 0:
@@ -37,23 +38,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("noteName").innerHTML = numToNote(randomRoot) + "aug";
                 canMajSeven = false;
                 break;
+            default:
+                break;
         }
-
+console.log(canMajSeven);
+console.log(chordNotes);
         //roll a random number and decide if it should be a seventh chord or not
-        const seventhDecision = Math.floor(Math.random() * 2); // 2 for no change, 1 for domSeven, 0 for majSeven
-
+        const seventhDecision = Math.floor(Math.random() * 3); // 2 for no change, 1 for domSeven, 0 for majSeven
+console.log(seventhDecision);
+        
+console.log(chordNotes);
         switch(seventhDecision) {
             case 0:
-                if (canMajSeven == true) {
+                if (canMajSeven) {
                     chordNotes.push(majSeven(randomRoot)[0]);
                     document.getElementById("noteName").innerHTML += "maj7"; 
                 }
-                
                 break;
             case 1:
                 chordNotes.push(domSeven(randomRoot)[0]);
                 document.getElementById("noteName").innerHTML += "7";
-                //chordTypeElement.innerHTML = "7";
                 break;
             case 2:
                 //do nothing
@@ -62,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         }
 
+        canMajSeven = true;
         console.log(chordNotes);
     })
 
