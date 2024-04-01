@@ -73,5 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 awesomeSpaceShortcut = (awesomeSpaceShortcut + 1) % 2;
             }
         }
+        if (event.key === 'Escape') {
+            // Redirect to home page when 'Esc' key is pressed
+            window.location.href = 'home.html';
+        }
     });
 });

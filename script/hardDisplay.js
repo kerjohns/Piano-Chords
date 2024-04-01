@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var next = document.getElementById('next');
     var chordNotes; // Declare chordNotes outside the event listeners
     var isChordDisplayed = false; // Initialize to false since the chord name is shown first
+    var awesomeSpaceShortcut = 0;
     
     function displayChordNotes() {
         // Display chord notes
@@ -88,6 +89,28 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             //if it is not display the chord notes
             displayChordNotes();
+        }
+    });
+
+    // Add event listener for keydown event
+    document.addEventListener('keydown', function(event) {
+        // Check if the key pressed is 'Enter' or 'Space' key
+        if (awesomeSpaceShortcut == 0) { //if thisis the first time pressing space then flip the card and add one to awesomeSpaceCounter
+            if (event.key === 'Enter' || event.key === ' ') {
+                // Trigger click event of the 'next' button
+                flip.click();
+                awesomeSpaceShortcut = (awesomeSpaceShortcut + 1) % 2;
+            }
+        } else if (awesomeSpaceShortcut == 1) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                // Trigger click event of the 'next' button
+                next.click();
+                awesomeSpaceShortcut = (awesomeSpaceShortcut + 1) % 2;
+            }
+        }
+        if (event.key === 'Escape') {
+            // Redirect to home page when 'Esc' key is pressed
+            window.location.href = 'home.html';
         }
     });
 });
