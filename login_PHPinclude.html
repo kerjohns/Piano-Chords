@@ -27,21 +27,21 @@
                 <input type="password" placeholder="******" name="password" required>
                 <br>
 
-                <input type="submit" value="Log in">
                 <br>
-            </form>
-            <p class="noacc">Don't have an account? <a href="signup.html">Sign up</a></p>
+                <button onclick="document.location='home.html'" type="Log in">Log in</button>
+                <br>
+                <p class="noacc">Don't have an account?   <a href="createUser.html">Sign up</a></a></p>
+
+            </div>
+
         </div>
-
-    </div>
-
+    
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        // Replace this with your actual username and password validation
-        if ($username == "admin" && $password == "password123") {
+        if ($username == "123" && $password == "123") {
             // Redirect to the home page
             header("Location: home.html");
             exit();
@@ -50,5 +50,6 @@
         }
     }
     ?>
-</body>
+
+    </body>
 </html>
