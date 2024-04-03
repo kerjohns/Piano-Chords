@@ -12,43 +12,56 @@
 </head>
 <body>
     <div id="logbody" class="logbody"><!--holds the whole body-->
-
         <h1>Log in</h1>
-
         <div class="main"><!--holds the form to fill out-->
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                <label for="username">Username</label>
-                <br>
+            <form action="" method="post">
+                <label for="username">Username:</label>
                 <input type="text" placeholder="Enter Username" name="username" required>
                 <br>
-
-                <label for="password">Password</label>
-                <br>
+                <label for="password">Password:</label>
                 <input type="password" placeholder="******" name="password" required>
                 <br>
-
-                <input type="submit" value="Log in">
-                <br>
+                <button type="submit" name="login">Log in</button>
             </form>
             <p class="noacc">Don't have an account? <a href="createUser.html">Sign up</a></p>
         </div>
-
     </div>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
+    include 'db_config.php';
+
+    $conn = new mysqli($mySQLservername, $mySQLusername, $mySQLpassword, $mySQLdbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+        $username = $conn->real_escape_string($_POST['username']);
         $password = $_POST['password'];
 
-        if ($username == "123" && $password == "123") {
-            // Redirect to the home page
-            header("Location: home.html");
-            exit();
+        // Login process
+        $stmt = $conn->prepare("SELECT userPassword FROM accounts WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['userPassword'])) {
+                header("Location: home.html");
+                exit();
+            } else {
+                echo "<p>Incorrect password</p>";
+            }
         } else {
-            echo "<script>alert('Incorrect username or password');</script>";
+            echo "<p>Username does not exist</p>";
         }
+
+        $stmt->close();
     }
+
+    $conn->close();
     ?>
 </body>
 </html>
-
