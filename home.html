@@ -19,12 +19,46 @@
         </header>
         
         <div class = "difficulties">
-            <h2> Select Flashcard Difficulty</h2>
-            <button onclick="document.location='flashcardEasy.html'">Easy</button>
-            <button onclick="document.location='flashcardMedium.html'">Medium</button>
-            <button onclick="document.location='flashcardHard.html'">Hard</button>
-            <button onclick="document.location='flashcardExtreme.html'">Extreme</button>
+            <h2>Select Flashcard Difficulty</h2>
+            <button id="easyButton" onclick="selectDifficulty('easy')">Easy</button>
+            <button id="mediumButton" onclick="selectDifficulty('medium')">Medium</button>
+            <button id="hardButton" onclick="selectDifficulty('hard')">Hard</button>
+            <button id="extremeButton" onclick="document.location='flashcardExtreme.html'" style="display: none;">Extreme</button>
         </div>
+
+        <script>
+            window.addEventListener('load', function() {
+                selectedDifficulties = JSON.parse(sessionStorage.getItem('selectedDifficulties')) || {
+                    easy: false,
+                    medium: false,
+                    hard: false
+                };
+                checkProgress();
+            });
+            var selectedDifficulties;
+
+            function checkProgress() {
+                if (selectedDifficulties && selectedDifficulties.easy && selectedDifficulties.medium && selectedDifficulties.hard) {
+                    document.getElementById('extremeButton').style.display = 'inline-block';
+                }
+            }
+            function selectDifficulty(difficulty) {
+                if (!selectedDifficulties) {
+                    selectedDifficulties = JSON.parse(sessionStorage.getItem('selectedDifficulties')) || {
+                        easy: false,
+                        medium: false,
+                        hard: false
+                    };
+                }
+                
+                if (!selectedDifficulties[difficulty]) { 
+                    selectedDifficulties[difficulty] = true;
+                    sessionStorage.setItem('selectedDifficulties', JSON.stringify(selectedDifficulties));
+                    checkProgress();
+                }
+                document.location = 'flashcard' + difficulty + '.html';
+            }
+        </script>
 
     </body>
 </html>
