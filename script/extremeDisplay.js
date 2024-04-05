@@ -3,7 +3,39 @@ document.addEventListener("DOMContentLoaded", function() {
     var flip = document.getElementById('flip');
     var next = document.getElementById('next');
     var chordNotes; // Declare chordNotes outside the event listeners
+    var isChordDisplayed = false;
     var awesomeSpaceShortcut = 0;
+
+
+    function displayChordNotes() {
+        console.log(chordNotes);
+        noteName.style.display = 'none';
+        chordName.style.display = 'block';
+
+        // Display chord notes in the corresponding <p> elements
+        if (chordNotes) {
+            // Display chord notes in the corresponding <p> elements
+            document.getElementById("chordName").innerHTML = chordNotes[0] + "    " + chordNotes[1] + "    " + chordNotes[2];
+            if (chordNotes[3]) {
+                document.getElementById("chordName").innerHTML += "    " + chordNotes[3];
+            }
+            if (chordNotes[4]) {
+                document.getElementById("chordName").innerHTML += "    " + chordNotes[4];
+            }
+            if (chordNotes[5]) {
+                document.getElementById("chordName").innerHTML += "    " + chordNotes[5];
+            }
+            if (chordNotes[6]) {
+                document.getElementById("chordName").innerHTML += "    " + chordNotes[6];
+            }
+
+            isChordDisplayed = true;
+        }
+        /*
+        document.getElementsByClassName("notes")[1].innerHTML = chordNotes[1];
+        document.getElementsByClassName("notes")[2].innerHTML = chordNotes[2];
+        */
+    }
 
     next.addEventListener('click', function(event) {
         noteName.style.display = 'block';
@@ -112,35 +144,20 @@ document.addEventListener("DOMContentLoaded", function() {
             default:
                 break;
         }
+        isChordDisplayed = false;
         console.log(chordNotes);
     })
 
     flip.addEventListener('click', function(event) {
-        console.log(chordNotes);
-        noteName.style.display = 'none';
-        chordName.style.display = 'block';
-
-        // Display chord notes in the corresponding <p> elements
-        if (chordNotes) {
-            // Display chord notes in the corresponding <p> elements
-            document.getElementById("chordName").innerHTML = chordNotes[0] + "    " + chordNotes[1] + "    " + chordNotes[2];
-            if (chordNotes[3]) {
-                document.getElementById("chordName").innerHTML += "    " + chordNotes[3];
-            }
-            if (chordNotes[4]) {
-                document.getElementById("chordName").innerHTML += "    " + chordNotes[4];
-            }
-            if (chordNotes[5]) {
-                document.getElementById("chordName").innerHTML += "    " + chordNotes[5];
-            }
-            if (chordNotes[6]) {
-                document.getElementById("chordName").innerHTML += "    " + chordNotes[6];
-            }
+        if (isChordDisplayed) {
+            // hide chord notes if the chord is displayed
+            noteName.style.display = 'block';
+            chordName.style.display = 'none';
+            isChordDisplayed = false;
+        } else {
+            //if it is not display the chord notes
+            displayChordNotes();
         }
-        /*
-        document.getElementsByClassName("notes")[1].innerHTML = chordNotes[1];
-        document.getElementsByClassName("notes")[2].innerHTML = chordNotes[2];
-        */
     });
 
     // Add event listener for keydown event
