@@ -36,5 +36,27 @@
 
             </div>
         </div>
+
+
+        <!--trying to form a create user page-->
+        <form method="post" action="createUser.php">
+            <label for="username">username: </label>
+            <input type="text" id="username" name="username" value="cool name"><br>
+            <label for="password">password: </label>
+            <input type="text" id="password" name="password" value="something secret"><br><br>
+            <input type="submit" value="Create User" name="createUser">
+        </form> 
+
+        <?php
+        require "createUserSendToDatabase.php";
+        // user clicked the login button */
+        if ( isset($_POST["createUser"]) ) {
+            $username = $_POST["username"]; 
+            $password = $_POST["password"]; 
+            echo create($username, $password);
+        }
+        ?>
+
+
     </body>
 </html>
