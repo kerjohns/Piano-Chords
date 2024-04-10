@@ -62,15 +62,14 @@ body{
 
 /* ------ Nav bar -------- */
 .navbar {
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
-  align-content: center;
+  align-items: center;
   overflow: hidden;
   background-color: #23012c;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
-
 }
 
 /* Links inside the navbar */
@@ -82,17 +81,24 @@ body{
   padding: 14px 16px;
   text-decoration: none;
 }
-
-/* Change background on mouse-over */
-.navbar .text:hover {
-  background: #d9d2e9;
-  color: #4f3d87;
-}
  
 .navlogo {
   padding: 2.5px;
   height: 2.5em;
   align-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.navlogout{
+    padding: 2.5px;
+    height: 2.5em;
+    align-content: center;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.navlogout:hover {
+  background: #4f0065;
+}
 /* ----- End Navbar -----*/
