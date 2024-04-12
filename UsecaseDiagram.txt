@@ -1,0 +1,53 @@
+@startuml
+left to right direction
+skinparam actorStyle Hollow
+
+actor User as u
+
+rectangle PianoChords {
+usecase CreateAccount as ca
+usecase SetEmail as se
+usecase CreatePassword as cp
+@startuml
+left to right direction
+skinparam actorStyle Hollow
+
+actor User as u
+
+rectangle PianoChords {
+usecase CreateAccount as ca
+usecase SetEmail as se
+usecase CreatePassword as cp
+usecase enterPassword as ep
+usecase LogIn as li
+usecase LogOut as lo
+usecase SelectFlashcards as self
+usecase StudyFlashcards as stuf
+usecase Easy as e
+usecase Medium as m
+usecase Hard as h
+usecase Extreme as x
+}
+
+u -- ca
+u -- li
+u -- lo
+u -- se
+u -- cp
+u -- ep
+u -- self
+u -- stuf
+
+li <.. ca :<<extends>>
+lo <.. li :<<extends>>
+cp <.. ca :<<includes>>
+se <.. ca :<<includes>>
+li <.. ep :<<includes>>
+stuf <.. self :<<extends>>
+self <.. e :<<includes>>
+self <.. m :<<includes>>
+self <.. h :<<includes>>
+e <.. x :<<includes>>
+m <.. x :<<includes>>
+h <.. x :<<includes>>
+@enduml
