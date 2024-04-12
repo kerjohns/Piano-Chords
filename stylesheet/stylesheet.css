@@ -33,7 +33,7 @@ html {
   padding: 10px;
 }
 
-.main button{
+.main button {
   background-color: #4f3d87;
   color: white;
   padding: 15px;
@@ -48,6 +48,23 @@ html {
   opacity: .8;
   cursor: pointer;
 }
+
+input[type="submit"] {
+  background-color: #4f3d87;
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 5%;
+}
+
+input[type="submit"] {
+  opacity: .8;
+  cursor: pointer;
+}
+
 
 .main a:link {
   text-decoration: underline;

@@ -15,7 +15,7 @@
             <h1> Create an Account </h1>
         <body>
 
-            <div class="main"><!--holds the form to fill out-->
+            <form method='post' class="main"><!--holds the form to fill out-->
                 <br><br>
                 <label for="username">username </label>
                 <br>
@@ -27,25 +27,16 @@
                 <br>
 
                 <label for="repassword">reenter password </label> <br>
-                <input type="repassword" placeholder="******" name="password" required>
+                <input type="repassword" placeholder="******" name="repassword" required>
                 <br>
-                <button onclick="document.location='home.html'"type="Log in">Sign Up</button>
+                <input type="submit" name="createUser" value="Sign Up">
                 <br>
                 <p class="noacc">Already have an account?   <a href="login.html">Log In</a></a></p>
 
 
-            </div>
+            </form>
         </div>
 
-
-        <!--trying to form a create user page-->
-        <form method="post" action="createUser.php">
-            <label for="username">username: </label>
-            <input type="text" id="username" name="username" value="cool name"><br>
-            <label for="password">password: </label>
-            <input type="text" id="password" name="password" value="something secret"><br><br>
-            <input type="submit" value="Create User" name="createUser">
-        </form> 
 
         <?php
         require "createUserSendToDatabase.php";
@@ -53,7 +44,23 @@
         if ( isset($_POST["createUser"]) ) {
             $username = $_POST["username"]; 
             $password = $_POST["password"]; 
-            echo create($username, $password);
+            $repassword = $_POST["repassword"];
+
+            if($password !== $repassword) {
+                echo "<p style='white'> Password does not match </p>";
+            } else {
+                $db = connectDB();
+                $stmt = $db->prepare("SELECT * FROM accounts WHERE username = :username");
+                $stmt->bindParam(':username', $username);
+                $stmt->execute();
+        
+                if($stmt->rowCount() > 0){
+                    echo "<p style='white'> User already exists </p>";
+                } else {
+                    $db = null;
+                    create($username, $password, $repassword);
+                }
+            }
         }
         ?>
 
