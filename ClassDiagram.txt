@@ -1,0 +1,37 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class "User" as u {
+#Email
+#Password
++Flashcards
+#CreateAccount()
+#EnterPassword()
++SelectFlashcars()
+}
+
+class "Accounts" as a {
+#UserEmail
+#UserPassword
++Flashcards
+}
+
+class "Flashcards" as f {
++Notes
++Chords
++Study()
+}
+
+class "Studying" as s {
++Easy()
++Medium()
++Hard()
++Extreme()
+}
+
+
+u -- f : many to many
+u --* a : one to one
+u --* s
+f --* s
+@enduml
