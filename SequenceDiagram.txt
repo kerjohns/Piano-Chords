@@ -1,0 +1,50 @@
+'this is code for the PlantUML code for the sequence diagram for the piano chords project
+
+@startuml
+
+actor user as u
+
+u --> Account : createAccount() 
+u --> Account : setEmail
+u --> Account : createPassword()
+u <-- Account : accountCreated
+u <-- Account : passwordCreated
+
+activate Account 
+
+u --> Account : login()
+
+alt
+
+activate Flashcards
+
+u --> Flashcards : selectFlashcards()
+
+u --> Flashcards : selectEasyFlashcards()
+u --> Flashcards : selectMediumFlashcards()
+u --> Flashcards : selectHardFlashcards()
+
+u <-- Flashcards : selected()
+u --> Flashcards : studyFlashcards()
+
+activate Studying 
+
+u --> Studying : studyEasyFlashcards()
+u --> Studying : studyMediumFlashcards()
+u --> Studying : studyHardFlashcards()
+u <-- Studying : studied
+u --> Studying : studyExtremeFlashcards()
+u <-- Studying : studiedExtreme()
+
+deactivate User
+
+u --> User : logout()
+u <-- User : loggedOut
+
+deactivate User
+
+else
+u <-- User: invalidLogin
+end
+
+@enduml

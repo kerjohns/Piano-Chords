@@ -6,13 +6,13 @@ echo "</pre>";
 
 function connectDB()
 {
-    $config = parse_ini_file("/local/my_web_files/kerjohns/db.ini");
+    $config = parse_ini_file("/local/my_web_files/ajvangor/db.ini");
     $dbh = new PDO($config['dsn'], $config['username'], $config['password']);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
 }
 
-function create($username, $password) 
+function create($username, $password, $repassword) 
 {
     try { 
         $dbh = connectDB(); 
@@ -24,7 +24,6 @@ function create($username, $password)
         $result = $statement->execute(); 
         
         $dbh->commit(); 
-        return "account has been created"; 
     } catch (Exception $e) { 
         $dbh->rollBack(); 
         echo "Failed: " . $e->getMessage(); 
