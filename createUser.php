@@ -27,11 +27,11 @@
                 <br>
 
                 <label for="repassword">reenter password </label> <br>
-                <input type="repassword" placeholder="******" name="repassword" required>
+                <input type="password" placeholder="******" name="repassword" required>
                 <br>
                 <input type="submit" name="createUser" value="Sign Up">
                 <br>
-                <p class="noacc">Already have an account?   <a href="login.html">Log In</a></a></p>
+                <p class="noacc">Already have an account?   <a href="login.php">Log In</a></a></p>
 
 
             </form>
@@ -59,6 +59,8 @@
                 } else {
                     $db = null;
                     create($username, $password, $repassword);
+                    header("LOCATION: login.php");
+                    exit();
                 }
             }
         }

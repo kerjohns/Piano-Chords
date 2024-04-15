@@ -1,8 +1,5 @@
 <?php
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
 
 function connectDB()
 {
@@ -12,7 +9,23 @@ function connectDB()
     return $dbh;
 }
 
-function create($username, $password, $repassword) 
+function authenticate($email, $password){
+    try {
+        $dbh = connectDB();
+        $statement = $dbh->prepare("SELECT username FROM accounts where username = :username and userPassword = :password;");
+        $statement->bindParam(":username", $email);
+        $statement->bindParam(":password", $password);
+        $statement->execute();
+        $user = $statement->fetchColumn();
+        $dbh = null;
+        return $user;
+    } catch (PDOException $e) {
+        print "Error!" . $e->getMessage() . "<br/>";
+        die();
+    }
+}
+
+function create($username, $password) 
 {
     try { 
         $dbh = connectDB(); 
